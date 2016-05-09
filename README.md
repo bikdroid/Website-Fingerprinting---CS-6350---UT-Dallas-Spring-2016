@@ -1,38 +1,28 @@
+Website Fingerprinting - Analysis of Traffic Analysis attack and counter measures
+
+A web user today has a trillion web pages seeking his attention every time he is online with thousands of websites being added each day. 
+Owing to the decentralized and unregulated nature of issuance of domain names and the low cost of web hosting, it has become extremely 
+simple for anyone to buy a domain name and host a website on his own. 
+This strength for the growth of internet, has also meant that anyone can use the web to create a fraudulent website with content and URL’s 
+stolen from existing genuine websites.
+
+Implementation :
+
+Inspired by the extensive research work on website fingerprinting attacks of Dr. K.P. Dyer 
+website: https://kpdyer.com
+https://github.com/kpdyer/website-fingerprinting
+
+We developed an improvement in the form of a Sliding Window approach to change the temporally varying test sets and produce a model that
+trains with time and provides a model to give consistent accuracy. Major achievement were the implementation of Sliding test-set window 
+and creation of a Ensemble o Classifiers.
+
+
+
 Traffic Analysis Framework
 ==========================
 
 This is a Python framework to compliment "Peek-a-Boo, I Still See You: Why Efficient Traffic Analysis Countermeasures Fail" [1].
 
-Contact details
----------------
-
-* website: https://kpdyer.com
-
-Notes
------
-
-* Installed and tested on RHEL5
-* Caching (via memcache) is disabled by default. Toggle ENABLE_CACHE in Datastore.py at your own risk.
-
-Requirements
-------------
-
-* Required RHEL5 packages: ```mysql mysql-server memcached python-memcached MySQL-python python-devel gcc python-dpkt atlas atlas-devel lapack lapack-devel blas blas-devel glpk-devel g2clib-devel compat-libf2c-34 compat-gcc-34-g77```
-* For Traffic Morphing install cvxopt-0.9 from source
-* Python 2.4 or later (Installed on RHEL5 by default)
-* WEKA (http://www.cs.waikato.ac.nz/ml/weka/)
-* Liberatore and Levine [2] WebIdent 2 Traces (http://traces.cs.umass.edu/index.php/Network/Network)
-* Herrmann et al. [3] MySQL Dataset (http://epub.uni-regensburg.de/11919)
-
-### Getting started
-
-1. Open config.py and set:
-   * WEKA_ROOT to a directory that contains WEKA
-   * PCAP_LOGS to the directory with extracted Liberatore and Levine pcap files
-   * MYSQL_HOST/MYSQL_USER/MYSQL_PASSWD/MYSQL_DB settings for the Herrmann database
-2. Execute "python main.py -h" to get help for runtime parameters
-3. Output from main.py is placed the 'output' directory.
-   Execute 'parseResultsFile.py' to interpret results.
 
 References
 ----------
