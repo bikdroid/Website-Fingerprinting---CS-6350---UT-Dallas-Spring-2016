@@ -304,30 +304,19 @@ def run():
     infowriter = csv.writer(csv_Model_output_file)
 
 
-
-    try:
-    	templist = ('Run at : '+ str(mytime))
-    	infowriter.writerow(templist)
-    finally:
-        print "K output file started"
-#    fdbgLib = open(outputFilename + '_Lib.debug', 'a')
-#    fdbgVPP = open(outputFilename + '_VPP.debug', 'a')
-#    fdbgJacc = open(outputFilename + '_Jacc.debug', 'a')
     fullrunOut = open(outputFilename + '_Full.debug','a')
 
     foutput = open(outputFilename + '.output', 'a')
 
-    print "CSV output file : outputs/" + str(csv_file.name)
-    print "CSV full K values output file : output/" + str(csv_Model_output_file.name)
-
+    print "CSV Seed-Accuracy output file ( Use tail -f filename, to watch seed updates ) : outputs/" + str(csv_file.name)
+    print "The overall accuracy is printed at the bottom of system outputs below. "
+    print "Starting seeding ... "
+    
     # outputs
 
     while (seed<endIndex ):
         seedlevel2=seed
         accuracy = 100
-#        fdbgLib.write("Seed "+str(seed) + "\n")
-#        fdbgVPP.write("Seed "+str(seed) + "\n")
-#        fdbgJacc.write("Seed " + str(seed) + "\n")
         fullrunOut = open(outputFilename + '_Full.debug', 'a')
 
         foutput = open(outputFilename + '.output', 'a')
@@ -422,6 +411,8 @@ def run():
 
             startClass = time.time()
 
+            # Obtaining Accuracies and website predictions for all traces from the 3 different classifiers.
+
             [accuracyLib,debugInfoLib] = LiberatoreClassifier.classify( runID, trainingSetLIb, testingSetLib )
             [accuracyVPP,debugInfoVPP] = VNGPlusPlusClassifier.classify( runID, trainingSetVPP, testingSetVPP )
             [accuracyJacc,debugInfoJacc] = JaccardClassifier.classify(runID,trainingSetJacc,testingSetJacc)
@@ -473,6 +464,7 @@ def run():
             totalClass =0;
             totalPrediction=0
 
+            # Voting system implemented as of now  
             for key in libDICT:
                 for k in range(0,config.NUM_TESTING_TRACES-1,1):
                     a=str(libDICT[key][k])
@@ -515,23 +507,6 @@ def run():
 
             summary = ', '.join(itertools.imap(str, output))
 
-#            f = open( outputFilename+'.output', 'a' )
-#            f.write( "\n"+summary )
-#            f.close()
-
-#            f = open( outputFilename+'.debug', 'a' )
-#            for entry in bestlist:
-#               f.write( entry[0]+','+entry[1]+"\n" )
-#            f.close()
-
-#            for entry in debugInfoLib:
-#                fdbgLib.write(entry[0] + ',' + entry[1] + "\n")
-
-#            for entry in debugInfoVPP:
-#                fdbgVPP.write(entry[0] + ',' + entry[1] + "\n")
-
-#            for entry in debugInfoJacc:
-#                fdbgJacc.write(entry[0] + ',' + entry[1] + "\n")
 
             outputFilenameArray = ['results',
                                    'k' + str(config.BUCKET_SIZE),
@@ -557,7 +532,7 @@ def run():
 
 
             finally:
-                print "seed data written for "+seedlevel2.__str__()
+                print "test-seed accuracy data written for "+seedlevel2.__str__()
                 csv_file.close()
 #
 
@@ -572,12 +547,13 @@ def run():
             if(accuracy<threshold):
                 break
 
-        seed=seedlevel2
+        seed=seedlevel2 # Seed is changed each time the loop breaks due to depression in Accuracy below Threshold.
 
-        print 'New seed .. '+seed.__str__()
+        print 'New seed ( Re-training ).. '+seed.__str__()
         if (testEnds == True):
             break
 
+    # Mean Accuracy and MSE calculations.
     meanAcc = np.mean(accuracyList)
     meanErr = np.mean(errorList)
     Msum = 0
@@ -606,7 +582,7 @@ def run():
         list2=(str(config.BUCKET_SIZE),totalAcc.__str__(),str(MsumRatio))
         infowriter.writerow(list2)
     finally:
-        print "k output file updated"
+        print "Seed-Accuracy CSV file updated"
 
 
 
