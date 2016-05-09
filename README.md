@@ -1,4 +1,4 @@
-Website Fingerprinting - Analysis of Traffic Analysis attack and counter measures
+Website Fingerprinting - Analysis of Traffic Analysis attack and counter measures (Course 6350 : Big Data Analytics, Prof. Dr. Latifur Khan, University of Texas at Dallas)
 =================================================================================
 
 A web user today has a trillion web pages seeking his attention every time he is online with thousands of websites being added each day. 
@@ -6,6 +6,7 @@ Owing to the decentralized and unregulated nature of issuance of domain names an
 simple for anyone to buy a domain name and host a website on his own. 
 This strength for the growth of internet, has also meant that anyone can use the web to create a fraudulent website with content and URL’s 
 stolen from existing genuine websites.
+
 
 Implementation 
 ==========================
@@ -19,13 +20,13 @@ of Sliding test-set window and creation of a Ensemble o Classifiers.
 
 Project Members 
 ==========================
-Bikramjit Mandal
-Swapnil Shah
-Divya Varma
-Aruksha Grover
-Saloni Karnik
-Saurabh Chaudhary
-Shashank Buch
+Bikramjit Mandal,
+Swapnil Shah,
+Divya Varma,
+Aruksha Grover,
+Saloni Karnik,
+Saurabh Chaudhary,
+Shashank Buch,
 Tushar Bhatia
 
 
