@@ -20,7 +20,7 @@ of Sliding test-set window and creation of a Ensemble o Classifiers.
 
 Project Members 
 ==========================
-Bikramjit Mandal,
+Bikramjit Mandal(bxm142230@utdallas.edu),
 Swapnil Shah,
 Divya Varma,
 Aruksha Grover,
