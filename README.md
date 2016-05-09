@@ -1,4 +1,4 @@
-Website Fingerprinting - Analysis of Traffic Analysis attack and counter measures (Course 6350 : Big Data Analytics, Prof. Dr. Latifur Khan, University of Texas at Dallas)
+Website Fingerprinting - Analysis of Traffic Analysis attack and counter measures (Course 6350 : Big Data Analytics)
 =================================================================================
 
 A web user today has a trillion web pages seeking his attention every time he is online with thousands of websites being added each day. 
