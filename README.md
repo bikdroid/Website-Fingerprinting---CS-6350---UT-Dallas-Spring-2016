@@ -12,9 +12,9 @@ Inspired by the extensive research work on website fingerprinting attacks of Dr.
 website: https://kpdyer.com
 https://github.com/kpdyer/website-fingerprinting
 
-We developed an improvement in the form of a Sliding Window approach to change the temporally varying test sets and produce a model that
-trains with time and provides a model to give consistent accuracy. Major achievement were the implementation of Sliding test-set window 
-and creation of a Ensemble o Classifiers.
+We developed an improvement over the existing code in the form of a Sliding Window approach to change the temporally varying test sets 
+and produce a model that trains with time and provides a model to give consistent accuracy. Major achievement were the implementation 
+of Sliding test-set window and creation of a Ensemble o Classifiers.
 
 
 
